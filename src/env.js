@@ -19,7 +19,7 @@ export const env = createEnv({
     FIREBASE_APP_ID: z.string(),
     FIREBASE_MEASUREMENT_ID: z.string(),
     TURSO_DATABASE_URL: z.string(),
-    TURSO_AUTH_TOKEN: z.string()
+    TURSO_AUTH_TOKEN: z.string().default('macaco')
   },
 
   /**

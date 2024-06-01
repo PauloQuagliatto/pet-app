@@ -47,7 +47,7 @@ export function LoginForm() {
           Entre já! Seu pet te espera!
         </CardDescription>
       </CardHeader>
-      <CardContent className="w-80 h-96 flex flex-col justify-between">
+      <CardContent className="min-w-96 h-96 flex flex-col justify-between">
         <Form {...form}>
           <form
             className="flex flex-col gap-3"

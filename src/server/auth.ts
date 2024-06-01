@@ -2,11 +2,11 @@ import NextAuth, { type DefaultSession } from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import bcrypt from "bcrypt";
+import { eq } from "drizzle-orm";
 
 import { env } from "@/env";
 import { db } from "@/server/db";
 import { users } from "./db/tables";
-import { eq } from "drizzle-orm";
 import { loginSchema } from "@/schemas/loginSchema";
 
 declare module "next-auth" {
@@ -35,6 +35,9 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         },
       }
     },
+    async redirect({ url, baseUrl }) {
+      return `${baseUrl}/dashboard`;
+    },
   },
   providers: [
     Credentials({
@@ -60,4 +63,4 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   session: {
     strategy: 'jwt'
   }
-})
+});

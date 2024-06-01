@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 const AnimalList = [{ id: `pet`, name: `Animal`, birthDate: new Date(), health: "EXCELENT", breed: 'bigle', color: ['brown', 'black', 'white'] }, { id: `satan`, name: `Animall`, birthDate: new Date(), health: "BAD", breed: 'bigle', color: ['brown', 'black', 'white'] }]
 
 
-export default function Component() {
+export default function ListPage() {
   return (
     <div className="grid gap-6">
       {AnimalList.map((animal) => (

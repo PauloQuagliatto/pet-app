@@ -12,14 +12,6 @@ export const createUserSchema = z
     phone: z.string().optional(),
     password: z.string().min(8, { message: "Senha deve conter mais de 8 caracteres" }),
     confirmPassword: z.string(),
-  }).superRefine(({ password, confirmPassword }, ctx) => {
-      if (password !== confirmPassword) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: "Confirmação diferente da senha",
-          path: ["confirmPassword"]
-        });
-      }
-    });
+});
 
 export type CreateUserSchema = z.infer<typeof createUserSchema>;

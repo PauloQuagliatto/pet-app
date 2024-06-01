@@ -4,7 +4,6 @@ dotenv.configDotenv({
   path: __dirname + '/./../../../.env.local'
 });
 
-console.log(process.env.TURSO_DATABASE_URL)
 export default {
   schema: "./src/server/db/schema.ts",
   out: "./src/server/db/drizzle/migrations",
