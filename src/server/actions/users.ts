@@ -3,7 +3,6 @@
 import { hash } from "bcrypt";
 import { randomUUID } from "crypto";
 
-import { auth } from "@/server/auth";
 import { users } from "@/server/db/tables";
 import { db } from "@/server/db";
 
@@ -15,7 +14,7 @@ export async function createUser(input: Omit<CreateUserSchema, "confirmPassword"
   }).safeParse(input);
 
   if(!success) {
-    throw Error("Data not matching type");
+    throw new Error("Data not matching type");
   }
 
   const id = randomUUID();
@@ -23,12 +22,12 @@ export async function createUser(input: Omit<CreateUserSchema, "confirmPassword"
   try {
     await db.insert(users).values({
       id,
+      ...data,
       password: passwordHash,
-      ...data
     });
     return;
-  } catch (error) {
-    console.log(error);
-    throw Error("INTERNAL_SERVER_ERROR");
+  } catch (e) {
+    console.log(e);
+    throw new Error("INTERNAL_SERVER_ERROR");
   }
 }

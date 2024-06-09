@@ -11,10 +11,10 @@ const inter = Inter({
 });
 
 
-const APP_NAME = "PWA App";
-const APP_DEFAULT_TITLE = "My Awesome PWA App";
-const APP_TITLE_TEMPLATE = "%s - PWA App";
-const APP_DESCRIPTION = "Best PWA app in the world!";
+const APP_NAME = "MyPet";
+const APP_DEFAULT_TITLE = "My Pet";
+const APP_TITLE_TEMPLATE = "%s - Pet";
+const APP_DESCRIPTION = "App to manage your pets";
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FFFFFF",
+  themeColor: "#C0C0C0",
 };
 
 export default function RootLayout({
@@ -49,7 +49,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
-      <body className={`font-sans ${inter.variable}`}>
+      <body className={`font-sans ${inter.variable} bg-gray-300`}>
         {children}
         <Toaster />
       </body>

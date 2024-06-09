@@ -14,10 +14,12 @@ export default async function Layout({ children }: LayoutProps) {
   }
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-between h-screen">
       <Header />
+      <main className="flex flex-col items-center flex-1 w-full px-4 py-8">
       {children}
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }

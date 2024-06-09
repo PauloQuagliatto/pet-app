@@ -1,3 +1,4 @@
+import { sql } from "drizzle-orm";
 import { integer, text, } from "drizzle-orm/sqlite-core";
 
 import { createTable } from "./helper"
@@ -11,6 +12,10 @@ export const pets = createTable("pet", {
   tutorId: text("tutorId")
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
-  birthDate: integer("birthDate", { mode: 'timestamp' }),
+  birthDate: integer("birthDate", { mode: 'timestamp' })
+    .notNull()
+    .default(sql`(current_timestamp)`),
   health: text("health", { enum: ["EXCELENT", "AVARAGE", "BAD"] })
+    .notNull()
+    .default("EXCELENT")
 });

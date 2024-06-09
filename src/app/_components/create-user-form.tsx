@@ -25,6 +25,7 @@ import {
 import { Input } from "@/app/_components/ui/input";
 import { CreateUserSchema, createUserSchema } from "@/schemas/createUserSchema";
 import { createUser } from "@/server/actions/users";
+import { z } from "zod";
 
 const createUserFormSchema = createUserSchema.superRefine(
   ({ password, confirmPassword }, ctx) => {
