@@ -9,7 +9,7 @@ import type { ChangeEvent } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-import { createPet } from "@/server/actions/pets";
+import { updatePet } from "@/server/actions/pets";
 
 import { CreatePetSchema, createPetSchema } from "@/schemas/createPetSchema";
 
@@ -24,15 +24,16 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/app/_components/ui/po
 
 import { cn } from "@/lib/utils";
 
-export default function NewPetPage() {
+type EditPetFormProps = {
+  pet: CreatePetSchema & { id: string }
+}
+
+export function EditPetForm({ pet }: EditPetFormProps) {
   const router = useRouter();
   const form = useForm<CreatePetSchema>({
     resolver: zodResolver(createPetSchema),
     defaultValues: {
-      name: "",
-      image: "",
-      colors: [{ val: "" }],
-      birthDate: new Date()
+      ...pet
     }
   });
 
@@ -43,16 +44,19 @@ export default function NewPetPage() {
 
   function onSubmit(data: CreatePetSchema) {
     toast.promise(
-      createPet(data),
+      updatePet({
+        id: pet.id,
+        ...data
+      }),
       {
-        loading: "Criando seu pet",
+        loading: "Atualizando dados do seu pet",
         success: (data) => {
-          if(data.success) {
+          if (data.success) {
             router.push("/dashboard");
           }
-          return "Seu pet foi criado com sucesso"
+          return "Os dados do seu pet foram atualizados com sucesso"
         },
-        error: "Houve um erro na criação de seu pet"
+        error: "Houve um erro na atualização dos dados do seu pet"
       }
     );
   }
@@ -207,5 +211,5 @@ export default function NewPetPage() {
         </form>
       </Form>
     </Card >
-  )
+  );
 }

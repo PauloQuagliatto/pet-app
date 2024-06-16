@@ -14,6 +14,7 @@
     --popover-foreground: 222.2 84% 4.9%;
 
     --primary-background: #487885;
+    --primary-hover: #53828D;
     --primary: #5EADA8;
     --primary-foreground: #74D6B5;
     --primary-fade: #8B511E80;
@@ -40,6 +41,7 @@
 
   .dark {
     --primary-background: #8B511E;
+    --primary-hover: #975A26;
     --primary: #B76C2B;
     --primary-foreground: #C88043;
     --primary-fade: #48788580;

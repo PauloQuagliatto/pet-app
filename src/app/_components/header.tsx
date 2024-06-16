@@ -3,11 +3,11 @@ import { Button } from "./ui/button";
 
 export function Header() {
   return (
-    <header className="flex items-center justify-between w-full p-4 bg-primary md:px-16">
-      <Button>
+    <header className="flex items-center justify-between w-full p-4 bg-primary-background md:px-16">
+      <Button variant={"ghost"}>
         <MenuIcon className="text-white md:text-lg" />
       </Button>
-      <Button>
+      <Button variant={"ghost"}>
         <ShareIcon className="text-white" />
       </Button>
     </header>

@@ -26,6 +26,7 @@ const config = {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "var(--primary)",
+          hover: "var(--primary-hover)",
           background: "var(--primary-background)",
           foreground: "var(--primary-foreground)",
           fade: "var(--primary-fade)"

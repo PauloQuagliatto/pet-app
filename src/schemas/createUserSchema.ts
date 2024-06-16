@@ -5,7 +5,7 @@ export const createUserSchema = z
     name: z
       .string()
       .min(2, { message: "Nome deve ter mais de 2 caracteres" })
-      .regex(/^[A-Za-z]+$/i, "Somente letras são permitidas"),
+      .regex(/^[A-Za-z\s]+$/i, "Somente letras são permitidas"),
     email: z
       .string()
       .email({ message: "Email deve ser válido" }),
