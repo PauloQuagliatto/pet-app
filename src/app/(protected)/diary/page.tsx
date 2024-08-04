@@ -1,4 +1,5 @@
 import { CalendarIcon, CheckCircleIcon } from "lucide-react"
+import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 
@@ -14,12 +15,14 @@ export default function AnimalHistoryPage() {
        <CalendarIcon className="h-6 w-6 text-gray-300" />
         <div className="text-2xl font-bold">April 1, 2024</div>
         <div className="ml-auto">
-          <Button size="sm">
+          <Button size="sm" asChild> 
+            <Link href={"/diary/new"}>
             New Occurrence
+            </Link>
           </Button>
         </div>
       </div>
-      <div className="grid gap-6">
+      <div className="w-full grid gap-6">
         {HistoriaAnimal.map((animal) => (
           <Card key = {animal.id}>
             <CardContent className="space-y-2 flex items-center space-x-4 border p-4 rounded-lg bg-primary-background">
