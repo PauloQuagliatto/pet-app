@@ -4,6 +4,15 @@ A social network to take care of your pet and share daily activities.
 
 ### Development Roadmap
 
+##### TODO
+- [ ] Create a vaccine calendar page
+- [ ] Create a feed
+- [ ] Create a tinder like mating page
+- [ ] Create an adoption page
+- [ ] Create lost and found pets page
+- [ ] Integrate payment system
+
+##### DONE
 - [x] Create database tables
 - [x] Create login and signup interfaces
 - [x] Implement next-auth authentication to the app
@@ -12,16 +21,9 @@ A social network to take care of your pet and share daily activities.
 - [x] Create new pet page
 - [x] Create edit pet page
 - [x] Create insert to and read from database server actions
-- [ ] Create a feed
-- [ ] Create a tinder like mating page
-- [ ] Create an adoption page
-- [ ] Create a vaccine calendar page
-- [ ] Create lost and found pets page
-- [ ] Integrate payment system
 
 
 ### About the app
-
 It is made using NextJS, Tailwindcss, ShadcnUI, Drizzle ORM, React Hook Form, Zod and Stripe.
 We use the Turso sqlite database.
 Development is done using Docker and Deployment using Vercel.
