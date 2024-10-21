@@ -2,9 +2,9 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Card } from "@/app/_components/ui/card";
-import { Form } from "@/app/_components/ui/form";
-import { Input } from "@/app/_components/ui/input";
+import { Card } from "@/components/ui/card";
+import { Form } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -13,8 +13,8 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/app/_components/ui/select";
-import { Textarea } from "@/app/_components/ui/textarea";
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 
 import { createOccurrenceSchema } from "@/schemas/createOccurrenceSchema";
 

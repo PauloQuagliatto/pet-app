@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pet App
 
-## Getting Started
+A social network to take care of your pet and share daily activities.
 
-First, run the development server:
+### Development Roadmap
+
+- [x] Create database tables
+- [x] Create login and signup interfaces
+- [x] Implement next-auth authentication to the app
+- [x] Create protected routes
+- [x] Create pets list
+- [x] Create new pet page
+- [x] Create edit pet page
+- [x] Create insert to and read from database server actions
+- [] Create a feed
+- [] Create a tinder like mating page
+- [] Create an adoption page
+- [] Create a vaccine calendar page
+- [] Create lost and found pets page
+- [] Integrate payment system
+
+
+### About the app
+
+It is made using NextJS, Tailwindcss, ShadcnUI, Drizzle ORM, React Hook Form, Zod and Stripe.
+We use the Turso sqlite database.
+Development is done using Docker and Deployment using Vercel.
+
+### Run the project
+
+#### Setup
+First setup the docker container using docker compose
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+docker compose up --build -d
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then access the container
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+docker exec -it pet-app bash
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Set the environment variables:
+__NEXTAUTH_SECRET__ and __TURSO_DATABASE_URL__
 
-## Learn More
+Create a local sqlite database, it can be run with turson using
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+turso dev --db-file dev.db
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+or you can set the env variable to point directly to the file
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Install the dependencies running
 
-## Deploy on Vercel
+```bash
+pnpm install
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Now you should push the drizzle configuration and tables to the database running:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+pnpm run db:push
+```
+
+#### Start dev server
+
+Inside the container run
+
+```bash
+pnpm run dev
+```

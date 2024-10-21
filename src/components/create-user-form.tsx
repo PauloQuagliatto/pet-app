@@ -6,14 +6,14 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import type { ChangeEvent } from "react";
 
-import { Button } from "@/app/_components/ui/button";
+import { Button } from "./ui/button";
 import {
     Card,
     CardContent,
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/app/_components/ui/card";
+} from "./ui/card";
 import {
     Form,
     FormControl,
@@ -21,8 +21,8 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/app/_components/ui/form";
-import { Input } from "@/app/_components/ui/input";
+} from "./ui/form";
+import { Input } from "./ui/input";
 import { CreateUserSchema, createUserSchema } from "@/schemas/createUserSchema";
 import { createUser } from "@/server/actions/users";
 import { z } from "zod";

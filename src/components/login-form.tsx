@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
+import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -17,7 +18,6 @@ import { Input } from "./ui/input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
 
 import { loginSchema, LoginSchema } from "@/schemas/loginSchema";
-import { toast } from "sonner";
 
 export function LoginForm() {
   const form = useForm<LoginSchema>({

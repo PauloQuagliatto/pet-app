@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getPet } from "@/server/actions/pets";
 
-import { EditPetForm } from "./edit-pet-form"
+import { EditPetForm } from "@/components/edit-pet-form"
 
 type EditPetPageProps = {
   params: {

@@ -3,8 +3,8 @@ import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 
-import { CardContent, Card } from "@/app/_components/ui/card"
-import { Button } from "@/app/_components/ui/button"
+import { CardContent, Card } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 const HistoriaAnimal = [{id: `pet`, createdAt: new Date() , occurency: "banho", status: "GOOD"}, {id: `peto`, createdAt: new Date() , occurency: "cirurgia", status: "BAD"}]
  

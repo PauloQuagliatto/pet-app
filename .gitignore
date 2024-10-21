@@ -44,6 +44,7 @@ yarn-error.log*
 
 # local db
 db.*
+*.db*
 
 # pwa
 sw.js*

@@ -11,7 +11,6 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import Link from "next/link";
-import DashboardPage from "../(protected)/dashboard/page";
 import { diary, pets } from "@/server/db/tables";
 
 export function Header() {
