@@ -12,12 +12,12 @@ A social network to take care of your pet and share daily activities.
 - [x] Create new pet page
 - [x] Create edit pet page
 - [x] Create insert to and read from database server actions
-- [] Create a feed
-- [] Create a tinder like mating page
-- [] Create an adoption page
-- [] Create a vaccine calendar page
-- [] Create lost and found pets page
-- [] Integrate payment system
+- [ ] Create a feed
+- [ ] Create a tinder like mating page
+- [ ] Create an adoption page
+- [ ] Create a vaccine calendar page
+- [ ] Create lost and found pets page
+- [ ] Integrate payment system
 
 
 ### About the app
