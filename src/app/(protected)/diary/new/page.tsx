@@ -29,7 +29,7 @@ export default function NewOccurrence() {
                   <p className="flex items-center gap-2">
                     <div
                       className={"h-4 w-4 rounded-full bg-primary-background"}
-                    ></div>{" "}
+                    ></div>
                     Bom
                   </p>
                 </SelectItem>

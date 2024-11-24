@@ -46,8 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
+    <html lang="en"> <head>
         <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
       <body className={`font-sans ${inter.variable} bg-gray-100`}>

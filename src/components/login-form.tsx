@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
+import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from "sonner";
 
 import { loginSchema, LoginSchema } from "@/schemas/loginSchema";
 
