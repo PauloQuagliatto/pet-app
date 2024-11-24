@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 
 import { auth } from "@/server/auth";
 
-import { CreateUserForm } from "../_components/create-user-form";
+import { CreateUserForm } from "@/components/create-user-form";
 
 
 export default async function SignUpPage() {

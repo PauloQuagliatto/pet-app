@@ -6,12 +6,10 @@ import { randomUUID } from "crypto";
 import { users } from "@/server/db/tables";
 import { db } from "@/server/db";
 
-import { CreateUserSchema, createUserSchema } from "@/schemas/createUserSchema";
+import { UserSchema, userSchema } from "@/schemas/userSchema";
 
-export async function createUser(input: Omit<CreateUserSchema, "confirmPassword">) {
-  const { success, data } = createUserSchema.omit({
-    confirmPassword: true 
-  }).safeParse(input);
+export async function createUser(input: UserSchema) {
+  const { success, data } = userSchema.safeParse(input);
 
   if(!success) {
     throw new Error("Data not matching type");

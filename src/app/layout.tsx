@@ -3,7 +3,8 @@ import "@/styles/globals.css";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
-import { Toaster } from "@/app/_components/ui/sonner";
+import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/contexts/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#C0C0C0",
+  themeColor: "rgb(243 244 246 / var(--tw-bg-opacity))",
 };
 
 export default function RootLayout({
@@ -49,9 +50,16 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
-      <body className={`font-sans ${inter.variable} bg-gray-300`}>
-        {children}
-        <Toaster />
+      <body className={`font-sans ${inter.variable} bg-gray-100`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

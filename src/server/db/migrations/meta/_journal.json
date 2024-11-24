@@ -1,0 +1,27 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1731934947410,
+      "tag": "0000_careless_killraven",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1731935329754,
+      "tag": "0001_soft_dust",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1732384165089,
+      "tag": "0002_dear_marvel_apes",
+      "breakpoints": true
+    }
+  ]
+}

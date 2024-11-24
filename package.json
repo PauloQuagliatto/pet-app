@@ -8,8 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:generate": "drizzle-kit generate --config=./src/server/db/drizzle.config.ts --custom",
+    "db:generate": "drizzle-kit generate --config=./src/server/db/drizzle.config.ts",
     "db:push": "drizzle-kit push --config=./src/server/db/drizzle.config.ts",
+    "db:migrate": "drizzle-kit migrate --config=./src/server/db/drizzle.config.ts",
     "db:studio": "drizzle-kit studio --config=./src/server/db/drizzle.config.ts",
     "db:pull": "drizzle-kit introspect:sqlite --config=./src/server/db/drizzle.config.ts",
     "db:drop": "drizzle-kit drop --config=./src/server/db/drizzle.config.ts"

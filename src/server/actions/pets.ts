@@ -4,7 +4,7 @@ import { db } from "@/server/db";
 import { auth } from "../auth";
 import { redirect } from "next/navigation";
 import { and, eq } from "drizzle-orm";
-import { CreatePetSchema, createPetSchema } from "@/schemas/createPetSchema";
+import { PetSchema, petSchema } from "@/schemas/petSchema";
 import { z } from "zod";
 
 export async function getPets() {
@@ -48,7 +48,7 @@ export async function getPet(id: string) {
       .from(petColors)
       .where(eq(petColors.petId, dbPet.id));
 
-    const res = createPetSchema.extend({ id: z.string() }).safeParse({
+    const res = petSchema.safeParse({
       ...dbPet,
       colors: colors.map((color) => ({
         val: color.color
@@ -65,23 +65,29 @@ export async function getPet(id: string) {
   }
 }
 
-export async function createPet(newPet: CreatePetSchema) {
+export async function createPet(newPet: PetSchema) {
   try {
     const session = await auth();
     if (!session) {
       return redirect("/");
     }
-    const [insertedPet] = await db.insert(pets).values({
-      name: newPet.name,
-      image: newPet.image,
+    const parseRes = petSchema.safeParse(newPet);
+
+    if (!parseRes.success) throw new Error("Invalid data");
+
+    const { data } = parseRes;
+
+    const [createdPet] = await db.insert(pets).values({
+      name: data.name,
+      image: data.image,
       tutorId: session.user.id,
-      birthDate: newPet.birthDate
+      birthDate: data.birthDate
     }).returning({ id: pets.id });
 
-    Promise.all(newPet.colors.map(async (color) => (
+    Promise.all(data.colors.map(async (color) => (
       await db.insert(petColors).values({
         color: color.val,
-        petId: insertedPet.id
+        petId: createdPet.id
       })
     )));
 
@@ -92,34 +98,46 @@ export async function createPet(newPet: CreatePetSchema) {
   }
 }
 
-export async function updatePet(petData: CreatePetSchema & { id: string }) {
+export async function updatePet(petData: NonNullable<PetSchema>) {
   try {
     const session = await auth();
     if (!session) {
       return redirect("/");
     }
+    const parseRes = petSchema
+      .refine(({ id }) => !!id, {
+        message: "Id must exist"
+      })
+      .safeParse(petData);
+
+    if (!parseRes.success) throw new Error("Invalid data");
+
+    const { data } = parseRes;
+
     await db
       .update(pets)
       .set({
-        name: petData.name,
-        image: petData.image,
-        birthDate: petData.birthDate
+        name: data.name,
+        image: data.image,
+        birthDate: data.birthDate
       })
       .where(and(
-        eq(pets.tutorId, session.user.id),
-        eq(pets.id, petData.id)
+        eq(pets.id, data.id as string),
+        eq(pets.tutorId, session.user.id)
       ));
 
-    Promise.all(petData.colors.map(async (color) => (
-      await db
-        .update(petColors)
-        .set({
-          color: color.val,
-        })
-        .where(
-          eq(petColors.petId, petData.id)
-        )
-    )));
+    Promise.all(
+      data.colors.map(async (color) => (
+        await db
+          .update(petColors)
+          .set({
+            color: color.val,
+          })
+          .where(
+            eq(petColors.petId, data.id as string)
+          )
+      ))
+    );
 
     return { success: true };
   } catch (e) {

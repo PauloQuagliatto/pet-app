@@ -45,9 +45,11 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         const { email, password } = loginSchema.parse(credentials);
         const [user] = await db.select().from(users).where(eq(users.email, email));
 
-        if (!user ?? !user?.password) return null;
+        if (!user || !user?.password) return null;
 
-        await bcrypt.compare(password, user.password);
+        const passwordMatch = await bcrypt.compare(password, user.password);
+
+        if (!passwordMatch) return null;
 
         return {
           id: user.id,

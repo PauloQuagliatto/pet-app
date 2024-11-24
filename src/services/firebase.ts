@@ -1,8 +1,6 @@
 import { env } from "@/env";
 import { getApp, getApps, initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: env.FIREBASE_API_KEY,
@@ -16,6 +14,4 @@ const firebaseConfig = {
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
-export const db = getFirestore(app);
 export const storage = getStorage(app);
-export const auth = getAuth(app);

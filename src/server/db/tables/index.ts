@@ -4,5 +4,6 @@ export * from "./petColors";
 export * from "./pets";
 export * from "./sessions";
 export * from "./users";
+export * from "./vaccines";
 export * from "./verificationTokens";
-
+export * from "./vets";

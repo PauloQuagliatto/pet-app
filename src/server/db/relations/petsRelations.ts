@@ -1,5 +1,6 @@
 import { relations } from "drizzle-orm";
-import { pets, users } from "../tables";
+
+import { pets, users, vaccines } from "../tables";
 import { diary } from "../tables/diary";
 
 export const pet_relations = relations(pets, ({ one, many }) => ({
@@ -7,5 +8,6 @@ export const pet_relations = relations(pets, ({ one, many }) => ({
     fields: [pets.tutorId],
     references: [users.id]
   }),
-  diary: many(diary)
+  diary: many(diary),
+  vaccines: many(vaccines)
 }))

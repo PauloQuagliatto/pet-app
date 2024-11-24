@@ -14,7 +14,7 @@
     --popover-foreground: 222.2 84% 4.9%;
 
     --primary-background: #487885;
-    --primary-hover: #53828D;
+    --primary-hover: #79E8E1;
     --primary: #5EADA8;
     --primary-foreground: #74D6B5;
     --primary-fade: #8B511E80;
@@ -41,13 +41,16 @@
 
   .dark {
     --primary-background: #8B511E;
-    --primary-hover: #975A26;
+    --primary-hover: #EEA566;
     --primary: #B76C2B;
     --primary-foreground: #C88043;
     --primary-fade: #48788580;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
   }
 }
 
