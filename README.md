@@ -15,7 +15,7 @@ A social network to take care of your pet and share daily activities.
 ##### DONE
 - [x] Create database tables
 - [x] Create login and signup interfaces
-- [x] Implement next-auth authentication to the app
+- [x] Implement authentication flow
 - [x] Create protected routes
 - [x] Create pets list
 - [x] Create new pet page
@@ -24,9 +24,9 @@ A social network to take care of your pet and share daily activities.
 
 
 ### About the app
-It is made using NextJS, Tailwindcss, ShadcnUI, Drizzle ORM, React Hook Form, Zod and Stripe.
+It is made using Nuxt 3 and Bun. The app uses Nuxt pages, route middleware and composables for its client experience.
 We use the Turso sqlite database.
-Development is done using Docker and Deployment using Vercel.
+Development is done using Docker and can be deployed to any Nuxt-compatible Node or Bun runtime.
 
 ### Run the project
 
@@ -43,8 +43,7 @@ Then access the container
 docker exec -it pet-app bash
 ```
 
-Set the environment variables:
-__NEXTAUTH_SECRET__ and __TURSO_DATABASE_URL__
+Set the environment variables from `.env.example` when connecting the app to external services.
 
 Create a local sqlite database, it can be run with turson using
 
@@ -54,16 +53,10 @@ turso dev --db-file dev.db
 
 or you can set the env variable to point directly to the file
 
-Install the dependencies running
+Install dependencies with Bun:
 
 ```bash
-pnpm install
-```
-
-Now you should push the drizzle configuration and tables to the database running:
-
-```bash
-pnpm run db:push
+bun install
 ```
 
 #### Start dev server
@@ -71,5 +64,5 @@ pnpm run db:push
 Inside the container run
 
 ```bash
-pnpm run dev
+bun run dev
 ```

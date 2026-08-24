@@ -1,0 +1,1 @@
+<template><footer class="bottom-bar"><div class="bottom-inner"><NuxtLink to="/pets/new">＋ Pet</NuxtLink><NuxtLink to="/dashboard">⌂ Início</NuxtLink><span>⚙ Configurações</span></div></footer></template>

@@ -1,0 +1,2 @@
+<script setup lang="ts">definePageMeta({ middleware: "auth" }); const router = useRouter(); const occurrence = ref("")</script>
+<template><section class="card"><h1 class="page-title">Nova ocorrência</h1><form class="stack" @submit.prevent="router.push('/diary')"><div class="field"><label>Descrição</label><input v-model="occurrence" required placeholder="Banho, consulta..."></div><button class="button full">Salvar</button></form></section></template>

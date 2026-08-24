@@ -1,1 +1,0 @@
-ALTER TABLE `vaccines` ADD `image` text NOT NULL;

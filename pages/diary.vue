@@ -1,0 +1,2 @@
+<script setup lang="ts">definePageMeta({ middleware: "auth" })</script>
+<template><section class="stack"><div class="row"><h1 class="page-title">Diário</h1><NuxtLink class="button" to="/diary/new">Nova ocorrência</NuxtLink></div><article class="notice">✅ <strong>Banho</strong><p class="muted">Hoje</p></article><article class="notice">🔴 <strong>Cirurgia</strong><p class="muted">Registro recente</p></article></section></template>

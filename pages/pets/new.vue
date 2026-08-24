@@ -1,0 +1,7 @@
+<script setup lang="ts">
+definePageMeta({ middleware: "auth" })
+const { add } = usePetStore(); const router = useRouter(); const form = reactive({ name: "", birthDate: "", image: "", colors: [""] })
+function image(event: Event) { const file = (event.target as HTMLInputElement).files?.[0]; if (!file) return; const reader = new FileReader(); reader.onload = () => form.image = String(reader.result); reader.readAsDataURL(file) }
+function submit() { if (!form.name || !form.birthDate) return; add({ name: form.name, birthDate: form.birthDate, image: form.image, colors: form.colors.filter(Boolean) }); router.push("/pets") }
+</script>
+<template><section class="card"><h1 class="page-title">Adicionar Pet</h1><form class="stack" @submit.prevent="submit"><div class="field"><label>Foto</label><input type="file" accept="image/*" @change="image"></div><div class="field"><label>Nome</label><input v-model="form.name" required placeholder="Hércules"></div><div class="field"><label>Data de nascimento</label><input v-model="form.birthDate" required type="date" :max="new Date().toISOString().slice(0,10)"></div><div class="field"><label>Cores</label><input v-for="(_, index) in form.colors" :key="index" v-model="form.colors[index]" placeholder="Cor do pet"><button class="button secondary" type="button" @click="form.colors.push('')">＋ Adicionar cor</button></div><button class="button full">Salvar</button></form></section></template>
